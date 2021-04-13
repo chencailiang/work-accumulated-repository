@@ -1,6 +1,5 @@
 package com.ccl.wrok.accumulated.utils;
 
-import com.fpi.ipes.emergency.utils.CurrentUserUtil;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
@@ -29,7 +28,7 @@ public class RestTemplateConfig {
             //调试阶段跳过网关
             headers.add("ignore-token", ignoreToken);
             //加入用户信息，便于权限过滤
-            CurrentUserUtil.putPermissionHeaders(headers);
+            //CurrentUserUtil.putPermissionHeaders(headers);
             return execution.execute(request, body);
         }));
         return restTemplate;

@@ -1,0 +1,28 @@
+server:
+  port: 8888
+  servlet:
+    context-path: /work-accumulated
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://10.191.20.209:30980/test?useSSL=false&useUnicode=true&autoReconnect=true&failOverReadOnly=false&maxReconnects=15000&allowMultiQueries=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: root
+    password: Fpi@123456
+    type: com.alibaba.druid.pool.DruidDataSource
+    initialSize: 5
+    minIdle: 5
+    maxActive: 100
+    maxWait: 60000
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 100
+    filters: stat,wall
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+    removeAbandoned: true
+    removeAbandonedTimeout: 300
+
+  # flyway
+  flyway:
+    locations: classpath:/db/migration
+    enabled: true
+    baseline-on-migrate: true
